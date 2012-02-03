@@ -1,0 +1,232 @@
+
+<script id="customer-form" type="text/x-handlebars-template">
+
+    <div style="margin-left: auto ;  margin-right: auto ; float: left;">
+
+        <div class="yui3-widget-bd" style="display: table;">
+            <form>
+                <div style="display: table-cell; width: 40%; ">
+
+                    <fieldset>
+                        <legend>Company Information</legend>
+
+                            <ul class="form-section">
+                                <li class="form-line">
+                                    <label class="form-label-left"> Type </label>
+                                    <div class="form-input">
+                                        <div class="form-single-column">
+                                            <span class="form-radio-item" style="clear:left;">
+                                                <input type="radio" class="form-radio" id="customerType" value="1" checked />
+                                                <label> Advertiser </label>
+                                            </span>
+                                            <span class="clearfix"></span>
+                                            <span class="form-radio-item" style="clear:left;">
+                                                <input type="radio" class="form-radio" id="customerType" value="2" />
+                                                <label> Publisher </label>
+                                            </span>
+                                            <span class="clearfix"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="form-line">
+                                    <label class="form-label-left">
+                                        Company Name<span class="form-required">*</span>
+                                    </label>
+                                    <div class="form-input">
+                                        <input type="text" class="form-textbox" id="companyName" />
+                                    </div>
+                                </li>
+                                <li class="form-line">
+                                    <label class="form-label-left">
+                                        URL<span class="form-required">*</span>
+                                    </label>
+                                    <div class="form-input">
+                                        <input type="text" class="form-textbox" id="companyUrl" />
+                                    </div>
+                                </li>
+                                <li class="form-line">
+                                    <label class="form-label-left">
+                                        User Name<span class="form-required">*</span>
+                                    </label>
+                                    <div id="cid_8" class="form-input">
+                                        <input type="text" class="form-textbox" id="userName" />
+                                    </div>
+                                </li>
+                                <li class="form-line">
+                                    <label class="form-label-left">
+                                        E-mail<span class="form-required">*</span>
+                                    </label>
+                                    <div id="cid_19" class="form-input">
+                                        <input type="text" class="form-textbox" id="email" />
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Account Details</legend>
+                        <ul class="form-section">
+
+                            <li class="form-line">
+                                <label class="form-label-left">
+                                    Taxonomy Owner<span class="form-required">*</span>
+                                </label>
+                                <div id="cid_10" class="form-input">
+                                    <select class="form-dropdown" id="taxonomyOwner">
+                                        <option>  </option>
+                                        <option value="101"> Option 1 </option>
+                                        <option value="102"> Option 2 </option>
+                                        <option value="103"> Option 3 </option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="form-line">
+                                <label class="form-label-left">
+                                    Account Type<span class="form-required">*</span>
+                                </label>
+                                <div id="cid_11" class="form-input">
+                                    <select class="form-dropdown" id="accountType">
+                                        <option>  </option>
+                                        <option value="Option 1"> Option 1 </option>
+                                        <option value="Option 2"> Option 2 </option>
+                                        <option value="Option 3"> Option 3 </option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="form-line">
+                                <label class="form-label-left"> </label>
+                                <div id="cid_12" class="form-input">
+                                    <div class="form-single-column">
+                                        <span class="form-checkbox-item">
+                                            <input type="checkbox" class="form-checkbox" id="isDataProvider" value="true" />
+                                            <label> Data Provider </label>
+                                        </span>
+                                        <span class="clearfix"></span>
+                                        <span class="form-checkbox-item">
+                                            <input type="checkbox" class="form-checkbox" id="isMember" value="true" />
+                                            <label> Member </label>
+                                        </span>
+                                        <span class="clearfix"></span>
+                                        <span class="form-checkbox-item" style="clear:left;">
+                                            <input type="checkbox" class="form-checkbox" id="isPartner" value="true" />
+                                            <label> Partner </label>
+                                        </span>
+                                        <span class="clearfix"></span>
+                                        <span class="form-checkbox-item">
+                                            <input type="checkbox" class="form-checkbox" id="isSubsidiary" value="true" />
+                                            <label> Subsidiary </label>
+                                        </span>
+                                        <span class="clearfix"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-line">
+                                <label class="form-label-left">
+                                    Minimum Amount<span class="form-required">*</span>
+                                </label>
+                                <div id="cid_20" class="form-input">
+                                    <input type="text" class="form-textbox" id="minAmount" />
+                                </div>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                </div>
+
+                <div style="display: table-cell; width: 40%; ">
+                    <fieldset>
+                        <legend>Agency Details</legend>
+                        <ul class="form-section">
+                            <li class="form-line">
+                                <label class="form-label-left"> </label>
+                                <div id="cid_14" class="form-input">
+                                    <div class="form-single-column">
+                                        <span class="form-checkbox-item" style="clear:left;">
+                                            <input type="checkbox" class="form-checkbox" id="isAgency" value="true" />
+                                            <label> Agency </label>
+                                        </span>
+                                        <span class="clearfix"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-line">
+                                <label class="form-label-left"> Agency Type </label>
+                                <div id="cid_13" class="form-input">
+                                    <select class="form-dropdown" id="agencyType">
+                                        <option>  </option>
+                                        <option value="Option 1"> Option 1 </option>
+                                        <option value="Option 2"> Option 2 </option>
+                                        <option value="Option 3"> Option 3 </option>
+                                    </select>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Locale Information</legend>
+                        <ul class="form-section">
+                            <li class="form-line">
+                                <label class="form-label-left">
+                                    Timezone<span class="form-required">*</span>
+                                </label>
+                                <div id="cid_15" class="form-input">
+                                    <select class="form-dropdown" id="timezone">
+                                        <option>  </option>
+                                        <option value="Option 1"> Option 1 </option>
+                                        <option value="Option 2"> Option 2 </option>
+                                        <option value="Option 3"> Option 3 </option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="form-line">
+                                <label class="form-label-left">
+                                    Currencies<span class="form-required">*</span>
+                                </label>
+                                <div id="cid_16" class="form-input">
+                                    <select class="form-dropdown" id="currencies" size="10" multiple="multiple">
+                                        <option>  </option>
+                                        <option value="Option 1"> Option 1 </option>
+                                        <option value="Option 2"> Option 2 </option>
+                                        <option value="Option 3"> Option 3 </option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="form-line">
+                                <label class="form-label-left">
+                                    Default Currency<span class="form-required">*</span>
+                                </label>
+                                <div id="cid_17" class="form-input">
+                                    <select class="form-dropdown" id="defaultCurrency">
+                                        <option>  </option>
+                                        <option value="Option 1"> Option 1 </option>
+                                        <option value="Option 2"> Option 2 </option>
+                                        <option value="Option 3"> Option 3 </option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="form-line">
+                                <label class="form-label-left">
+                                    Language Preference<span class="form-required">*</span>
+                                </label>
+                                <div id="cid_4" class="form-input">
+                                    <select class="form-dropdown" id="languagePref">
+                                        <option>  </option>
+                                        <option value="Option 1"> Option 1 </option>
+                                        <option value="Option 2"> Option 2 </option>
+                                        <option value="Option 3"> Option 3 </option>
+                                    </select>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</script>
