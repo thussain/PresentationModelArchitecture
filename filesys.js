@@ -6,8 +6,8 @@ var fileContents;
 var generatedName;
 var fileToWrite;
 var yuiModuleTemplate =  "YUI.add('{module_name}', function(Y) { ";
-	yuiModuleTemplate += "Y.one('head').append(unescape('{template}')); ";
-	yuiModuleTemplate += "}, '0.0.1', {requires: ['node']}); ";
+		yuiModuleTemplate += "Y.one('head').append(unescape('{template}')); ";
+		yuiModuleTemplate += "}, '0.0.1', {requires: ['node']}); ";
 
 
 function htmlEscape(text) {

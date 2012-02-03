@@ -21,48 +21,48 @@ YUI.add('customer-list-presenter', function(Y) {
 
 		},
 
-        render: function () {
-            var self = this;
-	        var content = Y.one(this.get('container'));
+		render: function () {
+			var self = this;
+			var content = Y.one(this.get('container'));
 
-	        var list = new Y.MVRPExample.CustomerList();
-	        this.set('modelList', list);
+			var list = new Y.MVRPExample.CustomerList();
+			this.set('modelList', list);
 
-	        this.view = new Y.MVRPExample.CustomerListView({
-		        modelList : list
-	        });
+			this.view = new Y.MVRPExample.CustomerListView({
+				modelList : list
+			});
 
-	        this.view.on('editDetails', this.doEditDetails, this);
-	        this.view.on('addNew', this.doAdd, this);
+			this.view.on('editDetails', this.doEditDetails, this);
+			this.view.on('addNew', this.doAdd, this);
 
-	        this.view.on('quickAdd', this.doQuickAdd, this);
-	        this.view.on('saveQuickAdd', this.doQuickAddSave, this);
-            this.view.on('delete', this.doDelete, this);
-	        this.view.on('deleteConfirmation', this.doDeleteConfirmation, this);
+			this.view.on('quickAdd', this.doQuickAdd, this);
+			this.view.on('saveQuickAdd', this.doQuickAddSave, this);
+			this.view.on('delete', this.doDelete, this);
+			this.view.on('deleteConfirmation', this.doDeleteConfirmation, this);
 
-	        this.view.on('itemSelectionModified', this.doItemSelection, this);
-	        this.view.on('allItemsSelectionModified', this.doAllItemsSelection, this);
-	        this._showView();
+			this.view.on('itemSelectionModified', this.doItemSelection, this);
+			this.view.on('allItemsSelectionModified', this.doAllItemsSelection, this);
+			this._showView();
 
-	        list.load(function (err, response) {
-                if (!err) {
-	                self.view.refreshRows();
-	                self._enableBulkOperations(self.get('pm').get('state.BulkOperationsAllowed.value'));
-	                self.view.hideLoadingIndicator();
-                }
-            });
+			list.load(function (err, response) {
+				if (!err) {
+					self.view.refreshRows();
+					self._enableBulkOperations(self.get('pm').get('state.BulkOperationsAllowed.value'));
+					self.view.hideLoadingIndicator();
+				}
+			});
 
-        },
+		},
 
 
-        _showView: function () {
-	        this.get('container').setContent(this.view.render().get('container'));
-	        this.view.showLoadingIndicator();
-        },
+		_showView: function () {
+			this.get('container').setContent(this.view.render().get('container'));
+			this.view.showLoadingIndicator();
+		},
 
-	    doEditDetails : function(id) {
-		    this.fire('editCustomer', id);
-	    },
+		doEditDetails : function(id) {
+			this.fire('editCustomer', id);
+		},
 		doAdd : function() {
 			this.fire('addCustomer');
 		},
@@ -93,21 +93,21 @@ YUI.add('customer-list-presenter', function(Y) {
 		doDelete : function() {
 			this.view.showDeleteConfirmation();
 		},
-        doDeleteConfirmation : function(e) {
-	        if (e.response) {
-		        var self = this;
-		        var selectedItems = this.get('pm').get('fields.selectedItems');
+		doDeleteConfirmation : function(e) {
+			if (e.response) {
+				var self = this;
+				var selectedItems = this.get('pm').get('fields.selectedItems');
 
-		        this.get('modelList').del(selectedItems, function (err, response) {
-			        if (!err) {
-				        self.view.refreshRows();
-				        self.get('pm').removeItems(selectedItems);
-			        }
-		        });
-	        }
-	        this.view.hideDeleteConfirmation();
+				this.get('modelList').del(selectedItems, function (err, response) {
+					if (!err) {
+						self.view.refreshRows();
+						self.get('pm').removeItems(selectedItems);
+					}
+				});
+			}
+			this.view.hideDeleteConfirmation();
 
-        },
+		},
 
 		doQuickAdd : function(e) {
 			this.view.showQuickAddForm();
@@ -136,10 +136,10 @@ YUI.add('customer-list-presenter', function(Y) {
 		}
 
 	});
-    Y.namespace('MVRPExample');
-    Y.MVRPExample.CustomerListPresenter = CustomerListPresenter;
+	Y.namespace('MVRPExample');
+	Y.MVRPExample.CustomerListPresenter = CustomerListPresenter;
 
 
 }, '0.0.1', {requires: ['app',
-						'customer-list-view',
-						'customer-list-pm']});
+	'customer-list-view',
+	'customer-list-pm']});

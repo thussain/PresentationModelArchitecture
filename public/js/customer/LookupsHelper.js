@@ -5,7 +5,7 @@ YUI.add('lookups-helper', function(Y) {
 	LookupsHelper = function () {};
 
 	LookupsHelper.load = function (callback) {
-		var uri, configuration;
+		var uri, configuration, io;
 
 		Y.Lang.isFunction(callback) || (callback = function () {});
 

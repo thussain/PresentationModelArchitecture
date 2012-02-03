@@ -3,15 +3,15 @@
  * Date: 12/30/11
  */
 var express = require('express'),
-    combo   = require('combohandler'),
+	combo   = require('combohandler'),
 	users = require('./mockdata/users'),
-    customerdata = require('./mockdata/customerdata'),
+	customerdata = require('./mockdata/customerdata'),
 	lookups = require('./mockdata/lookups'),
 	//fs = require('fs'),
 
-    app    = express.createServer(),
-    port   = process.env.PORT || 3000,
-    pubDir = __dirname + '/public';
+	app    = express.createServer(),
+	port   = process.env.PORT || 3000,
+	pubDir = __dirname + '/public';
 
 
 // Middleware
@@ -22,9 +22,9 @@ app.configure(function() {
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
 	app.use(express.session({
-				secret: "Coffeebreak",
-				cookie: { maxAge: 600000 }
-			})
+		secret: "Coffeebreak",
+		cookie: { maxAge: 600000 }
+	})
 	);
 
 	app.use(express.logger({format: ':response-time ms - :date - :referrer'}));
@@ -34,7 +34,7 @@ app.configure(function() {
 
 // Combo-handler for JavaScript.
 app.get('/js', combo.combine({rootPath: pubDir + '/js'}), function (req, res) {
-    res.send(res.body, 200);
+	res.send(res.body, 200);
 });
 
 //user selection
@@ -148,15 +148,15 @@ app.get('/customer/get', function(req, res){
 });
 
 app.del('/customer/delete', function(req, res){
-    var ids = [];
-    for (var key in req.query) {
-        ids.push(global.parseInt(req.query[key]));
-    }
+	var ids = [];
+	for (var key in req.query) {
+		ids.push(global.parseInt(req.query[key]));
+	}
 
-    console.log(ids);
-    customerdata = customerdata.filter( function(record) {
-        return ids.indexOf(record.id) < 0;
-    });
+	console.log(ids);
+	customerdata = customerdata.filter( function(record) {
+		return ids.indexOf(record.id) < 0;
+	});
 	res.json(customerdata, 200);
 
 });
@@ -168,5 +168,5 @@ app.get(/^\/(?:(?:customer)\/\d+\/)$/, function (req, res) {
 
 
 app.listen(port, function () {
-    console.log('My Server listening on ' + port);
+	console.log('Server listening on ' + port);
 });

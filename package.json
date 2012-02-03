@@ -1,12 +1,12 @@
 {
-    "name"        : "PresentationModel",
-    "description" : "Model View Presenter with Presentation Model Example using YUI3 App Framework",
-    "homepage"    : "",
-    "version"     : "0.1",
-    "author"      : "Taha Hussain <taha.inbox@yahoo.com> ",
-    "dependencies": {
-          "express"     : "2.5.3"
-        , "combohandler": "~0.1"
-        , "jade": ">= 0.0.1"
-    }
+  "name"        :"PresentationModel",
+  "description" :"Model View Presenter with Presentation Model Example using YUI3 App Framework",
+  "homepage"    :"",
+  "version"     :"0.1",
+  "author"      :"Taha Hussain <taha.inbox@yahoo.com> ",
+  "dependencies":{
+    "express"     :"2.5.3",
+    "combohandler":"~0.1",
+    "jade"        :">= 0.0.1"
+  }
 }

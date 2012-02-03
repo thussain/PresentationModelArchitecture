@@ -25,25 +25,25 @@ YUI.add('customer-list-pm', function(Y) {
 			}
 		},
 
-        addItems : function (items) {
-            var selectedItems = this.get('fields.selectedItems');
-	        items.forEach(function(value){
-		        if (selectedItems.indexOf(value) < 0) {
-			        selectedItems.push(value);
-		        }
-	        });
-            this.set('fields.selectedItems', selectedItems);
-        },
-        removeItems : function (items) {
-            var selectedItems = this.get('fields.selectedItems');
-            var remainingItems = [];
-	        selectedItems.forEach(function(value){
+		addItems : function (items) {
+			var selectedItems = this.get('fields.selectedItems');
+			items.forEach(function(value){
+				if (selectedItems.indexOf(value) < 0) {
+					selectedItems.push(value);
+				}
+			});
+			this.set('fields.selectedItems', selectedItems);
+		},
+		removeItems : function (items) {
+			var selectedItems = this.get('fields.selectedItems');
+			var remainingItems = [];
+			selectedItems.forEach(function(value){
 				if (items.indexOf(value) < 0) {
 					remainingItems.push(value);
 				}
-            });
-            this.set('fields.selectedItems', remainingItems);
-        }
+			});
+			this.set('fields.selectedItems', remainingItems);
+		}
 
 	}, {
 		ATTRS:{
