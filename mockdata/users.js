@@ -31,7 +31,6 @@ module.exports =
 		locale      :   'en_US',
 		currency    :   'USD',
 		permissions :   [
-			//'ACCOUNT_READ', 'ACCOUNT_WRITE',
 			'ORDER_READ', 'ORDER_WRITE'
 		]
 	}

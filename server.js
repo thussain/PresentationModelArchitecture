@@ -1,9 +1,6 @@
 /**
- * Created by JetBrains WebStorm.
  * User: Taha
  * Date: 12/30/11
- * Time: 7:28 PM
- * To change this template use File | Settings | File Templates.
  */
 var express = require('express'),
     combo   = require('combohandler'),
@@ -35,18 +32,12 @@ app.configure(function() {
 
 });
 
-/*
-app.configure(function () {
-    console.log('express static on ' + pubDir);
-    app.use(express.static(pubDir));
-});
-*/
 // Combo-handler for JavaScript.
 app.get('/js', combo.combine({rootPath: pubDir + '/js'}), function (req, res) {
-    console.log('serving js file request');
     res.send(res.body, 200);
 });
 
+//user selection
 app.get('/', function (req, res) {
 	res.sendfile('index.htm');
 });
@@ -100,13 +91,11 @@ function readUser(req, res, next) {
 	}
 	else {
 		req.user = user;
-		console.log('found user = ' + user.firstName + ' ' + user.lastName);
 		next();
 	}
 }
 
 function restrictToAccountRead(req, res, next) {
-
 	var user = req.user;
 	if (user.permissions.indexOf('ACCOUNT_READ') > -1) {
 		next();
@@ -117,33 +106,21 @@ function restrictToAccountRead(req, res, next) {
 }
 
 app.get('/dashboard', function (req, res) {
-	console.log('req.session.user = ' + req.session.user);
 	res.render('dashboard.jade', { title: 'Dashboard' });
-	//res.sendfile('dashboard.htm');
 });
-
-/*
-app.get('/template', function (req, res) {
-    console.log('serving template request');
-    res.json('<div id="customer-form"><div><label for="id">ID</label><br/></div></div>');
-});
-  */
 
 app.get('/customer/', readUser, restrictToAccountRead, function (req, res) {
-	console.log('req.session.user = ' + req.session.user);
-    //res.sendfile('customer.htm');
 	res.render('customers.jade', { title: 'Customers' });
 });
 
 
 app.get('/customer/lookups', function (req, res) {
-    console.log('getting lookups ...');
-	console.log('req.session.user = ' + req.session.user);
 	sleep(0.05);
 	res.json(lookups, 200);
 
 });
 
+//just to mimic some delay in backend processing
 function sleep(t) {
 	var now = new Date().getTime();
 	while(new Date().getTime() < now + (t*1000)) {
@@ -166,29 +143,11 @@ app.get('/customer/get', function(req, res){
 	var customer = customerdata.filter( function(record) {
 		return record.id == customerId;
 	});
-
-	console.log(customer);
-/*
-	var ids = [];
-	for (var key in req.query) {
-		ids.push(global.parseInt(req.query[key]));
-	}
-
-	console.log(ids);
-	customerdata.customerdata = customerdata.customerdata.filter( function(record) {
-		return ids.indexOf(record.id) < 0;
-	});
-	console.log(customerdata.customerdata);
-	*/
 	sleep(0.1);
 	res.json(customer[0], 200);
-
-	//res.redirect('/customer/list', 302);
 });
 
 app.del('/customer/delete', function(req, res){
-    console.log(req.query);
-
     var ids = [];
     for (var key in req.query) {
         ids.push(global.parseInt(req.query[key]));
@@ -198,32 +157,13 @@ app.del('/customer/delete', function(req, res){
     customerdata = customerdata.filter( function(record) {
         return ids.indexOf(record.id) < 0;
     });
-    console.log(customerdata);
 	res.json(customerdata, 200);
 
-	//res.redirect('/customer/list', 302);
 });
 
-
-/**
- Restrict to only known paths that the app can respond to:
-
- - "/place/:id/"
- - "/photo/:id/"
-
- Redirects back to "/" with the URL as a fragment, e.g. "/#/photo/:id/"
- **/
-/*
-app.get(/^\/(?:(?:place|photo)\/\d+\/)$/, function (req, res) {
-    res.redirect('/#' + req.url, 302);
-});
-*/
-
+//allows for all sub-paths for customer app
 app.get(/^\/(?:(?:customer)\/\d+\/)$/, function (req, res) {
 	res.render('customers.jade', { title: 'Customers' });
-	//res.sendfile('customer.htm');
-	//console.log('req.url = ' + req.url);
-	//res.redirect('/#' + req.url, 302);
 });
 
 
