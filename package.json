@@ -1,0 +1,12 @@
+{
+    "name"        : "mvrpexample",
+    "description" : "Model View Router Presenter Example",
+    "homepage"    : "",
+    "version"     : "0.0.1",
+    "author"      : "Taha Hussain <writetaha@gmail.com> ",
+    "dependencies": {
+          "express"     : "2.5.3"
+        , "combohandler": "~0.1"
+        , "jade": ">= 0.0.1"
+    }
+}
