@@ -1,0 +1,4 @@
+$ npm install
+$ node filesys.js
+$ node server.js
+In your browser: http://localhost:3000/
