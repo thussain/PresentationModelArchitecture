@@ -1,0 +1,41 @@
+
+<script id="list" type="text/x-handlebars-template">
+    <div id="tbl"></div>
+</script>
+
+<script id="menu-controls" type="text/x-handlebars-template">
+    <div id="controls">
+        <button id="btnAdd">Add Customer</button>
+        <button id="btnBulkEdit">Bulk Edit</button>
+        <button id="btnDelete">Delete</button>
+    </div>
+</script>
+
+<script id="quick-add-content" type="text/x-handlebars-template">
+    <div id="panelContent">
+        <div class="yui3-widget-bd">
+            <form>
+                <fieldset>
+                    <p>
+                        <label for="id">ID</label><br/>
+                        <input type="text" name="id" id="productId" placeholder="">
+                    </p>
+                    <p>
+                        <label for="name">Name</label><br/>
+                        <input type="text" name="name" id="name" value="" placeholder="">
+                    </p>
+                    <p>
+                        <label for="password">Price</label><br/>
+                        <input type="text" name="price" id="price" value="" placeholder="$">
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</script>
+
+<script id="customer-list" type="text/x-handlebars-template">
+    <div id="table-listing" class="yui3-skin-sam"></div>
+</script>
+
+

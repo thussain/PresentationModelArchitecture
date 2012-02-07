@@ -1,0 +1,26 @@
+html
+    head
+        link(rel='stylesheet', href='/css/pagelayout.css')
+        block scripts
+    body(class="yui3-skin-sam")
+
+
+        div(id="header")
+            include header
+        div(id='navigation_container', class='yui3-menu yui3-menu-horizontal')
+            div(class='yui3-menu-content')
+                ul
+                    li(class='yui3-menuitem')
+                        a(class='yui3-menuitem-content', href='/dashboard') Dashboard
+                    li(class='yui3-menuitem')
+                        a(class='yui3-menuitem-content', href='/customer/') Accounts
+
+
+        div(id="content")
+            block content
+        div(id="footer")
+            include footer
+
+
+        script(src='/js/navigation.js')
+
